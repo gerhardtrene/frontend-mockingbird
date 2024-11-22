@@ -10,7 +10,7 @@ function Trends() {
   const [trendsData, setTrendsData] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/tweets/trends/${user.token}`)
+    fetch(`https://k4dw8srbke.eu-west-3.awsapprunner.com/tweets/trends/${user.token}`)
       .then(response => response.json())
       .then(data => {
         data.result && setTrendsData(data.trends);
