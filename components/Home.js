@@ -27,7 +27,7 @@ function Home() {
       return;
     }
 
-    fetch(`http://13.36.226.130:3000/tweets/all/${user.token}`)
+    fetch(`http://localhost:3000/tweets/all/${user.token}`)
       .then(response => response.json())
       .then(data => {
         data.result && dispatch(loadTweets(data.tweets));
@@ -41,7 +41,7 @@ function Home() {
   };
 
   const handleSubmit = () => {
-    fetch('http://13.36.226.130:3000/tweets', {
+    fetch('http://localhost:3000/tweets', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ token: user.token, content: newTweet }),
