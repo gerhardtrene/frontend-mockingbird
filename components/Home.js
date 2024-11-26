@@ -41,11 +41,7 @@ function Home() {
   };
 
   const handleSubmit = () => {
-<<<<<<< HEAD
-    fetch('https://k4dw8srbke.eu-west-3.awsapprunner.com/tweets', {
-=======
     fetch('http://13.36.226.130:3000/tweets', {
->>>>>>> 7df7b8a (port 80 setup)
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ token: user.token, content: newTweet }),
