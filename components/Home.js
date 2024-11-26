@@ -13,7 +13,7 @@ function Home() {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.value);
 
-  // Redirect to /login if you are not logged in
+  // Redirect to /login if not logged in
   const router = useRouter();
 
   if (!user.token) {
