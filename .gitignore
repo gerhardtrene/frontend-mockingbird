@@ -18,7 +18,10 @@
 # misc
 .DS_Store
 *.pem
+<<<<<<< HEAD
 *.bak
+=======
+>>>>>>> 7df7b8a (port 80 setup)
 
 # debug
 npm-debug.log*
