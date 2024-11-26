@@ -30,7 +30,7 @@ function Hashtag() {
 
     setQuery('#' + hashtag);
 
-    fetch(`http://localhost:3000/tweets/hashtag/${user.token}/${hashtag}`)
+    fetch(`http://52.47.158.211:3000/tweets/hashtag/${user.token}/${hashtag}`)
       .then(response => response.json())
       .then(data => {
         data.result && dispatch(loadTweets(data.tweets));
