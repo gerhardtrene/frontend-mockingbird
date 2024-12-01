@@ -11,13 +11,20 @@ jobs:
 
     steps:
     - name: Checkout Code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v2
 
-    - name: Deploy to EC2 using CodeDeploy
-      uses: aws-actions/aws-codedeploy-github-actions@v1
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v1
       with:
-        application-name: mockingbird
-        deployment-group-name: EC2-Front
-        deployment-config-name: CodeDeployDefault.AllAtOnce
-        github-token: ${{ secrets.GITHUB_TOKEN }}
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         region: eu-west-3
+
+    - name: Deploy to CodeDeploy from GitHub
+      run: |
+        aws deploy create-deployment \
+          --application-name mockingbird \
+          --deployment-group-name EC2-Front \
+          --deployment-config-name CodeDeployDefault.AllAtOnce \
+          --github-location repository=owner/repository-name,commitId=${{ github.sha }} \
+          --description "Deployment triggered from GitHub Actions"
