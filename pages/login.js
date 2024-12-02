@@ -5,7 +5,7 @@ function LoginPage() {
   return (
     <>
       <Head>
-        <title>Login -- Hackatweet</title>
+        <title>Login <> Hackatweet</title>
       </Head>
       <Login />
     </>
