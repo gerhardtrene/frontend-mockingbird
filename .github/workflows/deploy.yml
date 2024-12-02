@@ -26,5 +26,5 @@ jobs:
           --application-name mockingbird \
           --deployment-group-name EC2-Front \
           --deployment-config-name CodeDeployDefault.AllAtOnce \
-          --github-location repository=owner/repository-name,commitId=${{ github.sha }} \
+          --github-location repository=gerhardtrene/frontend-mockingbird,commitId=${{ github.sha }} \
           --description "Deployment triggered from GitHub Actions"
